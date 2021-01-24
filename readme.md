@@ -49,7 +49,7 @@ When enabled, the window should be set to `window.level = .floating`.
 
 If your app needs to access the internet for any reason, I would strongly recommend including a [Internet Access Policy](https://www.obdev.at/iap/index.html). This lets firewall apps present to the user what and why your app needs access to. It also makes it more likely the user will grant access.
 
-[Example policy.](https://github.com/sindresorhus/Gifski/blob/master/Gifski/InternetAccessPolicy.json)
+[Example policy.](https://github.com/sindresorhus/Gifski/blob/main/Gifski/InternetAccessPolicy.json)
 
 ### Number text field convenience
 
