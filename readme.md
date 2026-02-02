@@ -37,6 +37,7 @@ So what default menu items can be removed?
 - The “General” tab should use the `gearshape` symbol (not `gear`).
 - The “Advanced” tab should use the `gearshape.2` symbol.
 - You should not have license or update functionality there. Nor should you have an "About" tab. It's a **settings** window.
+- The window should not close when the user presses the Escape key. Escape is for dismissing transient UI like dialogs, sheets, and panels, not regular windows. Apple's own apps are inconsistent about this, but treating it as a normal window is correct. SwiftUI's [`Settings`](https://developer.apple.com/documentation/swiftui/settings) scene gives you this behavior by default.
 
 [Learn More](https://developer.apple.com/design/human-interface-guidelines/patterns/settings/#macos)
 
