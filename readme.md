@@ -46,6 +46,16 @@ So what default menu items can be removed?
 
 If your app has a drag and drop target for files, don't forget to also make it possible to click the drop area to open files through an open panel instead of dragging. Alternatively, add an “Open” button inside the drop target.
 
+#### Mixed content with some invalid items
+
+If a user drags a mix of supported and unsupported files (for example, both JPEG and PNG files onto an app that only accepts JPEG), the app should accept the valid items and silently ignore the rest. Do not reject the entire drop or show a blocking error dialog. Drag and drop is a low-friction interaction and should not be interrupted.
+
+SwiftUI's [`dropDestination(for:)`](https://developer.apple.com/documentation/swiftui/view/dropdestination(for:action:istargeted:)) and [`onDrop(of:)`](https://developer.apple.com/documentation/swiftui/view/ondrop(of:istargeted:perform:)) handle this automatically by filtering to only the matching types. When none of the dragged items are valid, these APIs will show the “not allowed” cursor and reject the drop entirely, which is the correct behavior.
+
+If some files were skipped and that might confuse the user, consider showing a brief non-blocking notification after the drop (for example, “3 of 5 files imported”). Mention accepted file types in the drop zone label to help prevent confusion upfront.
+
+[Learn More](https://developer.apple.com/design/human-interface-guidelines/drag-and-drop)
+
 ### “Always on top” functionality
 
 <img width="391" src="https://user-images.githubusercontent.com/170270/96353866-5463ca00-10d0-11eb-96b9-28d52611c1d0.png">
